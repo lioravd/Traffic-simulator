@@ -35,10 +35,10 @@
 			"compileCommandFragments" : 
 			[
 				{
-					"fragment" : "-g"
+					"fragment" : "-pthread -g"
 				},
 				{
-					"fragment" : "-std=gnu11"
+					"fragment" : "-std=gnu99"
 				}
 			],
 			"language" : "C",
@@ -48,7 +48,7 @@
 				[
 					1
 				],
-				"standard" : "11"
+				"standard" : "99"
 			},
 			"sourceIndexes" : 
 			[
@@ -62,7 +62,7 @@
 		"commandFragments" : 
 		[
 			{
-				"fragment" : "-g",
+				"fragment" : "-pthread -g",
 				"role" : "flags"
 			},
 			{
