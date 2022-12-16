@@ -1,4 +1,6 @@
-/home/lior/Downloads/CLion-2022.2.4/clion-2022.2.4/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_MAKE_PROGRAM=/home/lior/Downloads/CLion-2022.2.4/clion-2022.2.4/bin/ninja/linux/ninja -G Ninja -S /home/lior/CLionProjects/Traffic-simulator -B /home/lior/CLionProjects/Traffic-simulator/cmake-build-debug
--- Configuring done
--- Generating done
--- Build files have been written to: /home/lior/CLionProjects/Traffic-simulator/cmake-build-debug
+"C:\Program Files\JetBrains\CLion 2021.3\bin\cmake\win\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - MinGW Makefiles" "C:\Users\pc user\CLionProjects\traffic-simulator"
+CMake Error at CMakeLists.txt:1 (cmake_minimum_required):
+  CMake 3.23 or higher is required.  You are running version 3.21.1
+
+
+-- Configuring incomplete, errors occurred!
