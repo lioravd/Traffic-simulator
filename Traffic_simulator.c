@@ -47,13 +47,24 @@ void* generate_car(void* arg) {
     // Select a random time to wait before generating a new car
     int inter_arrival_time = rand() % (MAX_INTER_ARRIVAL_IN_NS - MIN_INTER_ARRIVAL_IN_NS + 1) + MIN_INTER_ARRIVAL_IN_NS;
 
-    //TODO: check if usleep is busy waiting
-    usleep(inter_arrival_time);
+    //TODO: check if nanosleep is busy waiting
+    nanosleep (inter_arrival_time);
 
     // Create a new car struct
     car_t car;
+
     pthread_mutex_init(&car.mutex, NULL);
-    car.pos = generator;
+
+    /**     wait 'till the square is free   */
+    // Try to acquire the mutex of the next square
+    int res = pthread_mutex_trylock(&traffic_circle[x+1].mutex);
+    if (res == 0) {
+        // Mutex was acquired successfully, move the car to the next square
+        traffic_circle[generator_pos] = *car;
+
+        // set the position of the new car
+        car.pos = generator_pos;
+    }
 
     // Create a new thread for the car
     pthread_create(&car.thread_id, NULL, move_car, &car);
@@ -72,9 +83,9 @@ void* move_car(void* arg) {
 
     // Continue moving until the car reaches a sink
     while (x % (N-1)) {
-        // Try to acquire the mutex of the next square
 
-        //TODO: CHANGE traffic_circle to a 1D array: traffic_circle[4*(N-1)]
+        /**     wait 'till the square is free   */
+        // Try to acquire the mutex of the next square
         int res = pthread_mutex_trylock(&traffic_circle[x+1].mutex);
         if (res == 0) {
             // Mutex was acquired successfully, move the car to the next square
@@ -112,7 +123,33 @@ void* move_car(void* arg) {
  * ******************************************************/
 
 void* printer(void* arg) {
+
+    int last = 4*(N-1);
+
+    //create the "@@@@@@@@" part in the middle
+    char pavement[N - 2];
+    for(i = 0; i<N-2; i++){
+        pavement[i = '@'];
+    }
+
+    //create the road map that looks like that [**   *  * *] of len: 4(N-1)
+    char road_map[4*(N-1)];
+
+
     //TODO: complete printer function
+
+    // wait TODO: complete
+
+    // print 1st line TODO: complete
+
+    //print all the middle lines
+    for(int i = 1; i< N-1; i++ ){
+        printf("%c", traffic_circle[last - i] )
+    }
+
+    //print the last line TODO: complete
+
+
 }
 
 
