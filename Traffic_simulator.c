@@ -30,7 +30,7 @@ typedef struct {
 } car_t;
 
 // 2D array to represent the traffic circle
-car_t traffic_circle[4*N];
+car_t traffic_circle[4*N - 4];
 
 // Function to generate a new car at one of the generators
 
@@ -61,7 +61,7 @@ void* generate_car(void* arg) {
 
 /********************************************************
  *                                                      *
- *                  move car                            *
+ *                  move car function                   *
  *                                                      *
  * ******************************************************/
 
@@ -99,8 +99,34 @@ void* move_car(void* arg) {
 
     } else {
         // Car should continue moving, reset its position and start a new thread
-        //TODO COMPLETE THIS PART, it
+        //TODO: COMPLETE THIS PART, it
         // shuld use the pthread_mutex_trylock
         // function to try to acquire a mutex to the next.🎇🎇🔥🚀
     }
 }
+
+/********************************************************
+ *                                                      *
+ *                  Printer  function                   *
+ *                                                      *
+ * ******************************************************/
+
+void* printer(void* arg) {
+    //TODO: complete printer function
+}
+
+
+int main(){
+    //TODO complete the main function
+
+    //initialize the traffic circle
+
+    //create the printer thread four car generator threads
+
+    //waits for the simulation to finish using pthread_join() function
+
+    //destroy the mutexes and exit the program.
+
+    return 0
+}
+
